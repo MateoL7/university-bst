@@ -1,13 +1,13 @@
 package model;
 
-public class AcademicUnit {
+public class AcademicUnit implements Comparable<AcademicUnit>{
 
 	private String name;
 	private int code;
 	private String director;
 	private AcademicUnit right;
 	private AcademicUnit left;
-	
+
 	public AcademicUnit(String pName, int pCode, String pDirector) {
 		name = pName;
 		code = pCode;
@@ -83,6 +83,17 @@ public class AcademicUnit {
 	public void setLeft(AcademicUnit left) {
 		this.left = left;
 	}
-	
-	
+
+
+	@Override
+	public int compareTo(AcademicUnit o) {
+		if(this.code > o.getCode()) {
+			return 1;
+		}else if(this.code == o.getCode()) {
+			return -1;
+		}else {
+			return 0;
+		}
+	}
+
 }
